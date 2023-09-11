@@ -1,0 +1,4 @@
+venv
+videohosting\db.sqlite3
+videohosting\cert.crt
+videohosting\cert.key

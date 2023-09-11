@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% load embed_video_tags %}
+
+{% block content %}
+{% for embed in embed_video %}
+    {% video embed.file_url as video %}
+        <h1>_________</h1>
+        <a href="{% url 'video:video_detail_embed' embed.id %}">{{ embed.title }}</a> <br>
+        <img src="{{ video.thumbnail }}" alt="" width="300">
+    {% endvideo %}
+{% endfor %}
+
+{% for upload in upload_video %}
+    <h1>_________</h1>
+    <a href="{% url 'video:video_detail_upload' upload.id %}">{{ upload.title }}</a> <br>
+
+    <img src="{{ upload.file.thumbnail }}" alt="" width="300">
+
+{% endfor %}
+
+{% endblock %}

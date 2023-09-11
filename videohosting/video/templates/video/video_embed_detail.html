@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% load embed_video_tags %}
+
+{% block content %}
+
+<h1>
+  {{ object.title }}
+</h1>
+
+{% video object.file_url as my_video %}
+  <pre>
+    Backend: {{ my_video.backend }}
+    URL: {{ my_video.url }}
+    Code: {{ my_video.code }}
+    Thumbnail: {{ my_video.thumbnail }}
+    HTTPS: {% if my_video.protocol == 'https' %}Yes{% else %}No{% endif %}</pre>
+
+  {% video my_video "large" %}
+{% endvideo %}
+
+{% endblock %}
